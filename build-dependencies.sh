@@ -4,7 +4,18 @@ export PKG_CONFIG_PATH=/${AIPREFIX}/lib64/pkgconfig:/${AIPREFIX}/lib/pkgconfig:/
 export ACLOCAL_PATH=/${AIPREFIX}/share/aclocal:$ACLOCAL_PATH
 export LD_LIBRARY_PATH=/${AIPREFIX}/lib64:/${AIPREFIX}/lib:$LD_LIBRARY_PATH
 
-(yum update -y && yum install -y epel-release && yum update -y && yum install -y libtool-ltdl-devel autoconf automake libtools which json-c-devel json-glib-devel gtk-doc gperf libuuid-devel libcroco-devel) || exit 1
+(yum update -y && yum install -y epel-release && yum update -y && yum install -y libtool-ltdl-devel autoconf automake libtools which json-c-devel json-glib-devel gtk-doc gperf libuuid-devel libcroco-devel intltool libpng-devel make \
+automake fftw-devel libjpeg-turbo-devel \
+libwebp-devel libxml2-devel swig ImageMagick-c++-devel \
+bc cfitsio-devel gsl-devel matio-devel \
+giflib-devel pugixml-devel wget curl git itstool \
+bison flex unzip dbus-devel libXtst-devel \
+mesa-libGL-devel mesa-libEGL-devel vala \
+libxslt-devel docbook-xsl libffi-devel \
+libvorbis-devel python-six curl \
+openssl-devel readline-devel expat-devel libtool \
+pixman-devel libffi-devel gtkmm24-devel gtkmm30-devel libcanberra-devel \
+lcms2-devel gtk-doc python-devel python-pip nano OpenEXR-devel) || exit 1
 
 mkdir -p /work/build
 
@@ -43,7 +54,7 @@ fi
 
 #export PYTHONPATH=/${AIPREFIX}/lib64/python2.7/site-packages/:$PYTHONPATH
 
-pip install pycairo
+pip install pycairo || exit 1
 #if [ ! -e /work/build/pycairo-1.17.1 ]; then
 #  (cd /work/build && rm -rf pycairo* && wget https://github.com/pygobject/pycairo/releases/download/v1.17.1/pycairo-1.17.1.tar.gz && tar xvf pycairo-1.17.1.tar.gz && cd pycairo-1.17.1) || exit 1
 #  exit
